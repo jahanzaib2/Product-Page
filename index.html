@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: auto;
+            height: 200vh;
+            background: #b4b3b3;
+        }
+        header{
+            width: auto;
+            height: 9vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+        h3 img{
+            margin-left: 1vw;
+        }
+        h4 img{
+            margin-right: 1vw;
+        }
+        h2{
+            color: #2a289b;
+            font-size: 1.5vw;
+            padding-top: 1vh;
+            font-family: sans-serif;
+            padding-bottom: 1vh;
+        }
+        nav{
+            position: sticky;
+            top: 0;
+            width: auto;
+            border-bottom: #fff 0.1vw solid;
+        }
+        nav ul{
+            display: flex;
+            justify-content: center;
+            justify-content: space-evenly;
+            align-items: center;
+            list-style: none;
+            height: 7vh;
+            background: #0044aa;
+        }
+        nav ul li a{
+            font-family: sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.1vw;
+            text-decoration: none;
+            color: #dfdbdb;
+            font-size: 1.2vw;
+        }
+        nav ul li:hover a{
+            color: #070606;
+            transition: 0.4s ease-in-out;
+        }
+        form{
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        form button{
+            position: absolute;
+            right: 1vw;
+            background: none;
+            border: none;
+        }
+        form input{
+            font-size: 1vw;
+            cursor: pointer;
+            box-sizing: border-box;
+            box-shadow: #030303 0vw 0vw 1vw 0vw;
+            padding-left: 1vw;
+            border-radius: 0.4vw;
+            border: none;
+        }
+        .slide{
+            width: 98.9vw;
+        }
+        .slide img{
+            width: 98.9vw;
+            background-size: cover;
+            background-position: center;
+            border-bottom: #fff 0.1vw solid;
+        }
+        .featured{
+            margin-left: 2vw;
+            height: 70vh;
+            width: 95vw;
+        }
+        .featured h1{
+            margin-top: 3vh;
+            font-size: 3vw;
+            margin-left: 3vw;
+            color: #3d3c3c;
+            margin-bottom: 3vh;
+        }
+        .fog{
+            display: flex;
+            justify-content: space-evenly;
+            height: 15vh;
+            width: 95vw;
+        }
+        .fog .box1{
+            width: 20vw;
+            height: 50vh;
+            box-sizing: border-box;
+            box-shadow: #a1a0a0 0vw 0vh 2vw 0vw;
+            background: #fff;
+        }
+        .fog .box1 img{
+            width: 20vw;
+            height: 30vh;
+            cursor: pointer;
+        }
+        .fog .box1 h5{
+            margin-top: 4vh;
+            margin-left: 1vw;
+            color: #0044aa;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .fog .box1 p{
+            margin-top: 2vh;
+            margin-left: 0.5vw;
+            color: #000;
+        }
+        .fog .box1 .con{
+            display: flex;
+            margin-top: 2.8vh;
+            cursor: pointer;
+            height: 6.3vh;
+            color: #fff;
+            width: 20vw;
+            background: #0044aa;
+        }
+        .fog .box1 .con .year{
+            color: #fff;
+            padding-left: 1vw;
+            font-size: 1.2vw;
+        }
+        .box1 .con .new{
+            color: #fff;
+            padding-left: 4vw;
+            font-size: 1.2vw;
+        }
+        .box1:hover h5{
+            color: #092b05;
+        }
+        .box1:hover p{
+            color: #a83a3a;
+        }
+        .box1:hover .con{
+            background: #000;
+        }
+        .fog .box2{
+            width: 20vw;
+            height: 50vh;
+            box-sizing: border-box;
+            box-shadow: #a1a0a0 0vw 0vh 2vw 0vw;
+            background: #fff;
+        }
+        .fog .box2 img{
+            width: 20vw;
+            height: 30vh;
+        }
+        .fog .box2 h5{
+            margin-top: 4vh;
+            margin-left: 1vw;
+            color: #0044aa;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .fog .box2 p{
+            margin-top: 2vh;
+            margin-left: 0.5vw;
+            color: #000;
+        }
+        .fog .box2 .con{
+            display: flex;
+            margin-top: 2.8vh;
+            cursor: pointer;
+            height: 6.3vh;
+            color: #fff;
+            width: 20vw;
+            background: #0044aa;
+        }
+        .fog .box2 .con .year{
+            color: #fff;
+            padding-left: 1vw;
+            font-size: 1.2vw;
+        }
+        .fog .box2 .con .new{
+            color: #fff;
+            padding-left: 4vw;
+            font-size: 1.2vw;
+        }
+        .box2:hover h5{
+            color: #092b05;
+        }
+        .box2:hover p{
+            color: #a83a3a;
+        }
+        .box2:hover .con{
+            background: #000;
+        }
+
+        .fog .box3{
+            width: 20vw;
+            height: 50vh;
+            box-sizing: border-box;
+            box-shadow: #a1a0a0 0vw 0vh 2vw 0vw;
+            background: #fff;
+        }
+        .fog .box3 img{
+            width: 20vw;
+            height: 30vh;
+        }
+        .fog .box3 h5{
+            margin-top: 4vh;
+            margin-left: 1vw;
+            color: #0044aa;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .fog .box3 p{
+            margin-top: 2vh;
+            margin-left: 0.5vw;
+            color: #000;
+        }
+        .fog .box3 .con{
+            display: flex;
+            margin-top: 2.8vh;
+            cursor: pointer;
+            height: 6.3vh;
+            color: #fff;
+            width: 20vw;
+            background: #0044aa;
+        }
+        .fog .box3 .con .year{
+            color: #fff;
+            padding-left: 1vw;
+            font-size: 1.2vw;
+        }
+        .fog .box3 .con .new{
+            color: #fff;
+            padding-left: 4vw;
+            font-size: 1.2vw;
+        }
+        .box3:hover h5{
+            color: #092b05;
+        }
+        .box3:hover p{
+            color: #a83a3a;
+        }
+        .box3:hover .con{
+            background: #000;
+        }
+
+        .fog .box4{
+            width: 20vw;
+            height: 50vh;
+            box-sizing: border-box;
+            box-shadow: #a1a0a0 0vw 0vh 2vw 0vw;
+            background: #fff;
+        }
+        .fog .box4 img{
+            width: 20vw;
+            height: 30vh;
+        }
+        .fog .box4 h5{
+            margin-top: 4vh;
+            margin-left: 1vw;
+            color: #0044aa;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .fog .box4 p{
+            margin-top: 2vh;
+            margin-left: 0.5vw;
+            color: #000;
+        }
+        .fog .box4 .con{
+            display: flex;
+            margin-top: 2.8vh;
+            cursor: pointer;
+            height: 6.3vh;
+            color: #fff;
+            width: 20vw;
+            background: #0044aa;
+        }
+        .fog .box4 .con .year{
+            color: #fff;
+            padding-left: 1vw;
+            font-size: 1.2vw;
+        }
+        .fog .box4 .con .new{
+            color: #fff;
+            padding-left: 4vw;
+            font-size: 1.2vw;
+        }
+        .box4:hover h5{
+            color: #092b05;
+        }
+        .box4:hover p{
+            color: #a83a3a;
+        }
+        .box4:hover .con{
+            background: #000;
+        }
+        .view{
+            display: flex;
+            width: auto;
+            justify-content: center;
+        }
+        .view button{
+            color: #fff;
+            background: #000;
+            width: 9vw;
+            margin-top: 2vh;
+            border: none;
+            border-radius: 1vw;
+            font-size: 1.8vw;
+        }
+        .view:hover button{
+            background: #b80606;
+        }
+        .car{
+            margin-top: 2vh;
+            background:linear-gradient(to top, rgba(0,0,0,0.6)50%, rgba(0,0,0,0.6)70%), url(./imageb.jpg);
+            height: 80vh;
+            border-bottom: #fff 0.1vw solid;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 98.9vw;
+        }
+        .car h6{
+            padding-top: 25vh;
+            margin-left: 10vw;
+            font-size: 3.5vw;
+            color: #fff;
+        }
+        .last{
+            width: 70vw;
+            height: 50vh;
+            font-size: 1.2vw;
+            letter-spacing: 0.1vw;
+            margin-top: 15vh;
+            margin-left: 10vw;
+            color: #fff;
+        }
+        footer{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0044aa;
+            height: 20vh;
+            width: 98.9vw;
+        }
+        footer .foot1 img{
+            width: 10vw;
+            margin-left: 4vw;
+        }
+        .foot1 .map{
+            color: #fff;
+            background: none;
+            font-size: 1vw;
+            cursor: pointer;
+            margin-left: 12vw;
+            margin-top: -1vh;
+            padding: 0 1vw;
+            letter-spacing: 0.1vw;
+            border-radius: 0.5vw;
+            border: #fff 0.1vw solid;
+            height: 6vh;
+        }
+        .map:hover {
+            color: #0408fc;
+            border: #0408fc 0.1vw solid;
+            background: #fff;
+
+        }
+        .num{
+            margin-left: 8vw;
+            background: none;
+            cursor: pointer;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: none;
+            font-size: 1.5vw;
+            color: #fff;
+        }
+        .num:hover {
+            color: #b80606;
+        }
+        .foot1{
+            position: relative;
+        }
+        .icon {
+            position: absolute;
+            top: 5vh;
+            right: -18vw;
+        }
+        .icon ion-icon{
+            margin-left: 1.5vw;
+            font-size: 1.8vw;
+            color: #fff;
+        }
+        #fb:hover{
+            color: #db1d1d;
+        }
+        #insta:hover{
+            color: #db1d1d;
+        }
+        #yt:hover{
+            color: #db1d1d;
+        }
+        .foot2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10vh;
+            width: 98.9vw;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3><img src="./camp-mart-new-logo.png" alt=""></h3>
+        <h2>Product Page</h2>
+        <h4><img src="./401-group-new-logo-resized.png" alt=""></h4>
+    </header><hr>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <form action="">
+            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            <input type="search" name="search" id="" placeholder="Search">
+        </form>
+        </ul>
+    </nav>
+    <div class="slide">
+        <img src="./MicrosoftTeams-image (16).png" alt="">
+    </div>
+    <div class="featured">
+        <h1>Featured Inventory</h1>
+        <div class="fog">
+            <div class="box1">
+                <img src="./image1.jpg" alt="">
+                <h5>22MB</h5>
+                <p>TRAILER</p>
+                <div class="con"> <p class="year">Year:2023</p> <p class="new">Condition:New</p>
+                </div>
+            </div>
+            <div class="box2">
+                <img src="./image2.jpg" alt="">
+                <h5>22MB</h5>
+                <p>TRAILER</p>
+                <div class="con"> <p class="year">Year:2023</p> <p class="new">Condition:New</p>
+                </div>
+            </div>
+            <div class="box3">
+                <img src="./image4.jpg" alt="">
+                <h5>22MB</h5>
+                <p>TRAILER</p>
+                <div class="con"> <p class="year">Year:2023</p> <p class="new">Condition:New</p>
+                </div>
+            </div>
+            <div class="box4">
+                <img src="./image3.jpg" alt="">
+                <h5>22MB</h5>
+                <p>TRAILER</p>
+                <div class="con"> <p class="year">Year:2023</p> <p class="new">Condition:New</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="view">
+        <button>View All</button>
+    </div>
+    <div class="car">
+        <h6>CampMart</h6>
+        <p style=" color:#fff; margin-left: 10vw; font-size: 2.8vw; margin-top: 1vh; ">Ontario’s Largest RV Superstores</p>
+        <p style=" color:#fff; margin-left: 10.5vw;">______</p>
+        <div class="last">
+        <p>At CampMart, we specialize in getting you and your family into the right RV that will fit your lifestyle and budget. 
+            With a massive selection of Tent Trailers, Hybrids, Light Weight Travel Trailers, Couples Coaches, Bunkhouses, Fifth Wheels, Toy Haulers,
+             Destination Trailers and Park Models from industry leading manufacturers like Starcraft, Heartland, Forest River,
+             Gulf Stream and Camp Mart exclusive Grand River line of RVs; the selection of quality trailers is endless.</p>
+            </div>
+    </div>   
+    <footer>
+        <div class="foot1">
+            <img src="./campmart-logo-resized-footer1.png" alt="">
+            <img src="./401Group-Wht-logo1.png" alt="">
+            <button class="map">Map & Hours</button>
+            <a class="num">1-877-401-3423</a>
+            <div class="icon">
+            <a href="#"><ion-icon id="fb" name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon id="insta" name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon id="yt" name="logo-youtube"></ion-icon></a>
+        </div>
+        </div>
+    </footer> 
+    <div class="foot2">
+        <img src="./ds-logo-rv-dark.png" alt="">
+        <div><p>Copyright© 2023 Dealer Spike. All Rights Reserved</p></div>
+        <div><p>Policy | Privacy | Accessibility | Terms | Site Map</p></div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
